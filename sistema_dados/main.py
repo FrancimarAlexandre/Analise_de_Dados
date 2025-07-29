@@ -1,23 +1,13 @@
 import pandas as pd
-import random
-from faker import Faker
 
-# Inicializa o gerador de dados falsos
-fake = Faker('pt_BR')
-
-# Gera 100 linhas de dados fictícios
+from random import randint
 data = []
-for _ in range(10000):
-    nome = fake.name()
-    idade = random.randint(18, 80)
-    email = fake.email()
-    telefone = fake.phone_number()
-    cidade = fake.city()
-    estado = fake.estado_sigla()
-    data.append([nome, idade, email, telefone, cidade, estado])
-
+for _ in range(100000):
+    preco = randint(0.2,101.2)
+    quantidade = randint(10,14)
+    data.append([preco,quantidade])
 # Cria o DataFrame
-df = pd.DataFrame(data, columns=["Nome", "Idade", "Email", "Telefone", "Cidade", "Estado"])
+df = pd.DataFrame(data, columns=["Preço", "Quantidade"])
 
 # Salva como arquivo Excel
 file_path = "../dados_ficticios.xlsx"
