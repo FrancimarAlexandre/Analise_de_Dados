@@ -2,22 +2,29 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-# lendo o arquivo excel
-data = pd.read_excel('../dados_ficticios.xlsx',None)
-# Criando o DataFrame
-print(data.keys())
-dados = {
-    'preco': data['Sheet1']['Preço'],
-    'quantidade': data['Sheet1']['Quantidade']
-}
-df = pd.DataFrame(dados)
 
-# Exibindo as primeiras linhas do DataFrame
-print(df.head())
+# Lendo o arquivo Excel 
+data = pd.read_excel('../dados_ficticios_produtos.xlsx', None)
 
-# Exibindo estatísticas descritivas
-print(df.describe())
+# Acessando a planilha que contém os dados
+df = data['Sheet1']
 
-# Plotando um gráfico de dispersão
-sns.scatterplot(data=df, x='preco', y='quantidade')
-plt.show()
+# Filtrando apenas os dados das Lojas
+loja_a = df[df['Loja'] == 'Loja A']
+loja_b = df[df['Loja'] == 'Loja B']
+loja_c = df[df['Loja'] == 'Loja C']
+loja_d = df[df['Loja'] == 'Loja D']
+
+# Calculando o lucro total da Loja 
+lucro_total_A = loja_a['Preço Total'].sum()
+lucro_total_B = loja_b['Preço Total'].sum()
+lucro_total_C = loja_c['Preço Total'].sum()
+lucro_total_D = loja_d['Preço Total'].sum()
+
+print(f"Lucro total da Loja A: R${lucro_total_A:,.2f}")
+print("==")
+print(f"Lucro total da Loja B: R${lucro_total_B:,.2f}")
+print("==")
+print(f"Lucro total da Loja C: R${lucro_total_C:,.2f}")
+print("==")
+print(f"Lucro total da Loja D: R${lucro_total_D:,.2f}")
