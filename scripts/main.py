@@ -28,3 +28,19 @@ print("==")
 print(f"Lucro total da Loja C: R${lucro_total_C:,.2f}")
 print("==")
 print(f"Lucro total da Loja D: R${lucro_total_D:,.2f}")
+
+lista_lucro_total_A = list(loja_a['Preço Total'])
+lista_lucro_total_B = list(loja_b['Preço Total'])
+lista_lucro_total_C = list(loja_c['Preço Total'])
+lista_lucro_total_D = list(loja_d['Preço Total'])
+# gerando gráficos lucros
+
+A = plt.plot(lista_lucro_total_A)
+B = plt.plot(lista_lucro_total_B)
+C = plt.plot(lista_lucro_total_C)
+D = plt.plot(lista_lucro_total_D)
+plt.title('Gráficos dos Lucros das lojas')
+plt.xlabel("Quantidade")
+plt.ylabel("valor")
+
+plt.show()

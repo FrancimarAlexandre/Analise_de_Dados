@@ -19,7 +19,7 @@ produtos = {
 lojas = ['Loja A', 'Loja B', 'Loja C', 'Loja D']
 
 data = []
-for i in range(100000):
+for i in range(100):
     categoria = random.choice(categorias)
     nome_produto = random.choice(produtos[categoria])
     preco = round(random.uniform(5.0, 500.0), 2)
